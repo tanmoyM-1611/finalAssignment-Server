@@ -27,9 +27,9 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    const classesCollection = client.db('summer-camp').collection('classes');
-    const instructorsCollection = client.db('summer-camp').collection('instructors');
-    const usersCollection = client.db('summer-camp').collection('users');
+    const classesCollection = client.db('classic-school').collection('classes');
+    const instructorsCollection = client.db('classic-school').collection('instructors');
+    const usersCollection = client.db('classic-school').collection('users');
     app.get('/classes',async(req,res)=>{
         const result = await classesCollection.find().toArray();
         res.send(result);
@@ -115,5 +115,5 @@ app.get('/',(req,res)=>{
     res.send('server is running!');
 })
 app.listen(port, ()=>{
-    console.log(`Summer Camp is on the go on port: ${port} `);
+    console.log(`Classic School is on the go on port: ${port} `);
 })
